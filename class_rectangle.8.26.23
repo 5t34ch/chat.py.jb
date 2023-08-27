@@ -1,0 +1,34 @@
+class Rectangle:
+    def __init__(self, width, height, depth):
+        self.width = width
+        self.height = height
+        self.depth = depth
+        self.perimeter = (width * 2) + (height * 2)
+        self.area = width * height
+        self.volume = width * height * depth
+
+    def describe(self):
+        return (f"Rectangle:\n"
+                f"Width: {self.width}\n"
+                f"Height : {self.height}\n"
+                f"Perimeter: {self.perimeter}\n"
+                f"Area: {self.area}\n"
+                f"Volume: {self.volume}")
+
+
+def get_input(prompt):
+    while True:
+        try:
+            # Convert user input to an integer
+            value = float(input(prompt))
+            return value
+        except ValueError:
+            # If the conversion fails, inform the user and try again
+            print("Please enter a valid number.")
+
+
+width = get_input("What is the width? :")
+height = get_input("What is the height? :")
+depth = get_input("What is the depth? :")
+my_rectangle = Rectangle(width, height, depth)
+print(my_rectangle.describe())
