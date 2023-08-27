@@ -1,0 +1,51 @@
+import random
+
+# Step 1: Create a list of rand #s
+number_21 = [random.randint(1,297) for _ in range(21)]
+print("Random List :", number_21)
+
+
+# Step 2 : Define the is_even function
+def is_even(number):
+    return number % 2 == 0
+
+
+# Step  2.1 : Define the is_odd function
+def is_odd(number):
+    return number % 2 != 0
+
+
+# Step 2.2 : use filter to create a new list
+odd_numbers = list(filter(is_odd, number_21))
+print("Odd Numbers :", odd_numbers)
+
+
+# Step 2.3 : Return True or False for is_odd
+#for number in number_21:
+    #if is_odd(number):
+        #print(number, " is odd")
+
+
+# Step 2.4 : Use list comprehension to create a list of squares of the even numbers
+cubes = [pow(i, 3) for i in odd_numbers]
+print("Cubes of Odd Numbers :", cubes)
+
+
+# Step 2.5 : Create a zipped list of cubes and odd numbers
+zipped_cubes = list(zip(odd_numbers, cubes))
+print("Zipped Cubes :", zipped_cubes)
+
+
+# Step 3: Use filter to create a new list of even numbers
+even_numbers = list(filter(is_even, number_21))
+print("Even Numbers :", even_numbers)
+
+
+# Step 4: Use list comprehension to create a list of squares of the even numbers
+squares = [pow(i, 2) for i in even_numbers]
+print("Squares of Even Numbers :", squares)
+
+
+# Step 5: Create a list of zipped pairs
+zipped_pairs = list(zip(even_numbers, squares))
+print("Zipped Pairs :", zipped_pairs)
