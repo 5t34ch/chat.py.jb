@@ -1,0 +1,39 @@
+import random
+from functools import reduce
+# generate a list of random #'s from 1 to 397
+number_ran = [random.randint(1, 397) for _ in range(20)]
+print("rand list: ", "\n", number_ran)
+
+
+# a function that determines if a number is divisible by 3
+def is_multiple_of_3(number):
+    return number % 3 == 0
+
+
+# filter with multiple_of_3
+multiple_of_3 = list(filter(is_multiple_of_3, number_ran))
+print("Multiples of 3: ", "\n", multiple_of_3)
+
+
+# takes a number and * 4
+def quadruple(number):
+    return number * 4
+
+
+# uses map
+quadruples = list(map(quadruple, multiple_of_3))
+print("four times the *'s of 3: ", "\n", quadruples)
+
+# uses reduce to find the *= of all #s in the q ls
+product_r = reduce((lambda x, y: x * y), quadruples)
+print("product of quad's list: ", "\n", product_r)
+
+
+# uses zip to find the pairs from *'s of 3 and its 4'd #
+zipped_pairs = list(zip(quadruples, multiple_of_3))
+print("zipped pairs", "\n", zipped_pairs)
+
+
+# list comp to find dif of #'s from the list
+dif_ls = [(pair[0] - pair[1]) for pair in zipped_pairs]
+print("difference of the quadrupled and the multiples of 3: ", "\n", dif_ls)
